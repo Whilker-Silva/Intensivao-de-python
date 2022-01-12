@@ -3,9 +3,11 @@
 # Análise dethalada dos clientes
 
 import pandas as pd
+import plotly.express as px
 
 # Importar a base de dados
-tabela = pd.read_csv(r"C:\Users\whilk\Desktop\telecom_users.csv")
+tabela = pd.read_csv(
+    r"C:\Users\whilk\Documents\VsCode\Curso de python\telecom_users.csv")
 
 # Tratamento de dados (Corrigir os problemas da base de dados)
 # Coluna inúltil
@@ -16,6 +18,15 @@ tabela = pd.read_csv(r"C:\Users\whilk\Desktop\telecom_users.csv")
 # axis = 0 -> lihhacle
 # axis = 1 -> coluna
 tabela = tabela.drop("Unnamed: 0", axis=1)
-print(tabela)
+tabela["TotalGasto"] = pd.to_numeric(tabela["TotalGasto"], errors="coerce")
+tabela = tabela.dropna(how="all", axis=1)
+tabela = tabela.dropna(how="any", axis=0)
 
+print(tabela.info())
+print()
+print("_____________________________________________________________")
+print()
+print(tabela["Churn"].value_counts())
+print(tabela["Churn"].value_counts(normalize=True).map("{:.1%}".format))
 
+grafico = px.histogram(tabela, x="Genero", color="Churn")

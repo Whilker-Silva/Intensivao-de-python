@@ -68,7 +68,7 @@ pyautogui.press("enter")
 time.sleep(2)
 
 pyautogui.click(x=2193, y=556)
-time.sleep(5)
+time.sleep(8)
 
 #Escrever e-mail
 pyautogui.click(x=1523, y=175)
