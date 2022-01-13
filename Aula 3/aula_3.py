@@ -7,3 +7,5 @@
 from selenium import webdriver
 
 navegador = webdriver.Chrome(r"C:\Users\whilk\Documents\VsCode\Curso de python\chromedriver.exe")
+navegador.get("https://www.google.com/")
+
