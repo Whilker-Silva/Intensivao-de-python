@@ -29,4 +29,7 @@ print()
 print(tabela["Churn"].value_counts())
 print(tabela["Churn"].value_counts(normalize=True).map("{:.1%}".format))
 
-grafico = px.histogram(tabela, x="Genero", color="Churn")
+for coluna in tabela.columns:
+    grafico = px.histogram(tabela, x=coluna, color="Churn")
+
+grafico.show()
