@@ -39,7 +39,7 @@ tabela["Preço de Compra"] = tabela["Preço Original"]*tabela["Cotação"]
 tabela["Preço de Venda"] = tabela["Preço de Compra"]*tabela["Margem"]
 
 #6 salvar a base de dados
-tabela.to_excel("Produtos_novo.xlsx", index=False)
+tabela.to_excel("Aula 3\Produtos.xlsx", index=False)
 
 print(dolar)
 print(euro)
