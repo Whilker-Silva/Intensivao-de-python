@@ -6,7 +6,7 @@ import pyautogui
 import pandas as pd
 
 #criando navegado webdriver e abrindo pagina do google
-navegador = webdriver.Chrome(r"C:\Users\whilk\Documents\VsCode\Curso de python\chromedriver.exe")
+navegador = webdriver.Chrome(r"Aula 3\chromedriver.exe")
 navegador.get("https://www.google.com/")
 
 #1 cotação do dolar
@@ -29,14 +29,14 @@ ouro = ouro.replace(",", ".")
 navegador.quit()
 
 #4 importar e atualizar a base de dados
-tabela = pd.read_excel(r"C:\Users\whilk\Documents\VsCode\Curso de python\Produtos.xlsx")
+tabela = pd.read_excel(r"Aula 3\Produtos.xlsx")
 tabela.loc[tabela['Moeda'] == 'Dólar', 'Cotação'] = float(dolar)
 tabela.loc[tabela['Moeda'] == 'Euro', 'Cotação'] = float(euro)
 tabela.loc[tabela['Moeda'] == 'Ouro', 'Cotação'] = float(ouro)
 
 #5 calcular os preços 
 tabela["Preço de Compra"] = tabela["Preço Original"]*tabela["Cotação"]
-tabela["Preço de Venda"] = tabela["Preço de Compra"]*tabela["Margem "]
+tabela["Preço de Venda"] = tabela["Preço de Compra"]*tabela["Margem"]
 
 #6 salvar a base de dados
 tabela.to_excel("Produtos_novo.xlsx", index=False)
