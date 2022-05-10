@@ -95,7 +95,6 @@ Whilker Henrique.
 
 pyperclip.copy(texto)
 pyautogui.hotkey("ctrl", "v")
-pyautogui.hotkey("ctrl", "enter")
 
 
 
